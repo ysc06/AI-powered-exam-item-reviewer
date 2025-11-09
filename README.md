@@ -30,7 +30,7 @@ It provides a complete pipeline:
 | **Review Workflow** | Supports `approve`, `reject`, and `commit` actions |
 | **Frontend** | React-based dashboard for item viewing, approval, and similarity display |
 
-
+🍕Secret Sauce: Prompts engineered through a developer’s analytical mindset, enabling systematic examination and transformation of exam content.
 ---
 
 ## Architecture
@@ -113,24 +113,6 @@ docker-compose up --build
 | `POST` | `/api/items/commit` | Commit approved items |
 | `GET` | `/api/export` | Export items to CSV |
 
----
-
-## Example JSON Output
-
-```json
-{
-  "stimulus": "Company memo: meeting on Friday at 10 a.m.",
-  "stem": "What is announced in the memo?",
-  "choices": [
-    "A staff lunch",
-    "A budget review",
-    "A quarterly meeting",
-    "An office relocation"
-  ],
-  "answer": "C",
-  "metadata": {"topic": "Business Communication", "difficulty": "Medium"}
-}
-```
 
 ---
 
