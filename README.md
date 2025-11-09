@@ -31,7 +31,7 @@ It provides a complete pipeline:
 | **Frontend** | React-based dashboard for item viewing, approval, and similarity display |
 
 🍕Secret Sauce: Prompts engineered through a developer’s analytical mindset, enabling systematic examination and transformation of exam content.
----
+
 
 ## Architecture
 
