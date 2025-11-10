@@ -1,4 +1,4 @@
-# 🧑‍🏫👩‍🏫 IntelFlux -- 
+# 🧑‍🏫👩‍🏫 IntelFlux 
 
 IntelFlux is an AI-Powered Exam Item Builder and Reviewer with Prompt Workflow. 
 A major limitation of current NLP systems and large language models is their difficulty with inference and other higher-level reasoning tasks.
