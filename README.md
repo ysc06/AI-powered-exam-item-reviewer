@@ -143,10 +143,9 @@ docker-compose up --build
 **2. Handling different item states**
 
 - Each item can be pending, approved, rejected, or committed. Keeping these states consistent across the database, API, and frontend UI was harder than expected. I had to build a clean mapping so the backend and frontend always spoke the same “language.”
-**3. Building similarity search with embeddings**
+**3. Building similarity search with embeddings**<br>
 
-- The system detects duplicate or similar items using embeddings.
-- This required:
+The system detects duplicate or similar items using embeddings.This required:<br>
 -- caching embeddings so we don’t recompute them
 -- managing model downloads
 -- handling performance when comparing many items
