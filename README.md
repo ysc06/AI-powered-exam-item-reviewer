@@ -137,6 +137,38 @@ docker-compose up --build
 | **Utilities** | dotenv, Pydantic, JSON Validation |
 
 ---
+## Challenges
+**1. Making AI output predictable**
+- The OpenAI model sometimes returned incomplete or messy results (missing choices, too-long stems, wrong formats).I had to add validation rules and cleanup logic to make sure every generated item met the required structure.
+**2. Handling different item states**
+- Each item can be pending, approved, rejected, or committed. Keeping these states consistent across the database, API, and frontend UI was harder than expected. I had to build a clean mapping so the backend and frontend always spoke the same “language.”
+**3. Building similarity search with embeddings**
+- The system detects duplicate or similar items using embeddings.
+- This required:
+-- caching embeddings so we don’t recompute them
+-- managing model downloads
+-- handling performance when comparing many items
+**4. Dockerizing the whole project**
+- Running the backend, frontend, and database inside Docker introduced issues like:
+- fixing Python import paths
+- passing environment variables to Vite
+- setting up CORS correctly
+- making sure the SQLite database stays persistent
+**5. Showing long stimuli and text correctly in the UI**
+Some stimuli are long paragraphs.I had to handle:
+- formatting
+- escaping characters
+- avoiding broken layouts in the React frontend
+**6. Building a reviewer-friendly interface**
+- The UI needed clear status tabs, search, and clean item display.
+- Handling loading states, errors, and async API calls added complexity.
+**7. Ensuring the system is stable end-to-end**
+Because this is a full-stack + AI project, small issues in one layer often affected others.
+I learned to:
+- test each part separately
+- check API responses
+- keep a clean contract between backend and frontend
+---
 
 ## Author
 **Naomi (Yu-Shan) Cheng**  
