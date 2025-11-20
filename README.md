@@ -35,26 +35,26 @@ It provides a complete pipeline:
 
 ```
 +------------------------------------------------------+
-|                    Frontend (React)                 |
-|  - Reviewer Dashboard                               |
-|  - Approve / Reject / Commit Workflow               |
+|                    Frontend (React)                  |
+|  - Reviewer Dashboard                                |
+|  - Approve / Reject / Commit Workflow                |
 +---------------------------▲--------------------------+
                             |
                             ▼
 +---------------------------+--------------------------+
 |             FastAPI Backend (Python)                 |
 |  - /api/items CRUD routes                            |
-|  - /api/items/generate (OpenAI prompt generation)     |
-|  - /api/items/similar (embedding search)              |
-|  - /api/items/approve, /reject, /commit               |
-|  - SQLite via SQLAlchemy ORM                          |
+|  - /api/items/generate (OpenAI prompt generation)    |
+|  - /api/items/similar (embedding search)             |
+|  - /api/items/approve, /reject, /commit              |
+|  - SQLite via SQLAlchemy ORM                         |
 +---------------------------▲--------------------------+
                             |
                             ▼
 +---------------------------+--------------------------+
 |                AI & Embedding Services               |
 |  - OpenAI GPT-4.1 / GPT-4o for generation            |
-|  - Hugging Face Sentence Transformers embeddings      |
+|  - Hugging Face Sentence Transformers embeddings     |
 +------------------------------------------------------+
 ```
 
