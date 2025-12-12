@@ -14,7 +14,7 @@ It provides a complete pipeline:
 - Validate structure and enforce guardrails  
 - Compute semantic embeddings for similarity detection  
 - Enable human reviewers to approve/reject items  
-- Commit approved items and export them to CSV
+- Commit approved items to database
 
 ---
 
