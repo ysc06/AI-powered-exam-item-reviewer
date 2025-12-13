@@ -5,6 +5,9 @@ Most models can summarize or rewrite text, but they struggle to generate questio
 This app provides a workflow that uses AI for generation while relying on structured prompts, validation checks, and human review to produce higher-quality inference-based exam items. It is a full-stack system built with OpenAI, Hugging Face embeddings, FastAPI, and React.
 
 ---
+## Video Walkthrough
+https://youtu.be/-7nmn1wWGAI
+---
 
 ## Overview
 
