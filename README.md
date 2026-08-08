@@ -1,653 +1,362 @@
 # 👩‍🏫👨‍🏫 ExamFlux
+ExamFlux is an AI-powered exam authoring and review platform that combines LLM-based question generation, validation guardrails, semantic similarity detection, and human approval into a unified workflow.
 
-> **AI-powered Exam Authoring Platform** for intelligent question
-> generation, AI-assisted quality assurance, retrieval-augmented
-> standards validation, and human-in-the-loop assessment development.
-
-ExamFlux is an AI-powered exam authoring platform that streamlines the
-entire assessment development lifecycle. Instead of focusing only on AI
-question generation, ExamFlux integrates generation, AI-assisted review,
-retrieval-augmented standards validation, revision workflows, and human
-approval into a unified authoring experience.
-
-------------------------------------------------------------------------
-
-# 🎥 Video Walkthrough
+## 🎥 Video Walkthrough
 
 https://youtu.be/R-jLH7xjr88
 
-------------------------------------------------------------------------
+## 📖 Overview
 
-# 📖 Overview
+ExamFlux demonstrates how **AI + backend orchestration + workflow automation** can support exam content creation and review.
 
-Modern assessment development requires significantly more than
-generating exam questions.
+- Generate exam items from `.docx` files or text prompts using OpenAI GPT-4.1
 
-Every exam item should be reviewed for:
+- Validate generated item structure and enforce guardrails
 
--   Writing quality
--   Learning objective alignment
--   Distractor effectiveness
--   Difficulty consistency
--   Internal authoring standards
--   Fairness and sensitivity
--   Publication readiness
+- Compute semantic embeddings for similarity and duplicate detection
 
-ExamFlux demonstrates how modern AI engineering techniques---including
-**Prompt Orchestration**, **Retrieval-Augmented Generation (RAG)**, and
-**Human-in-the-Loop workflows**---can improve the quality, consistency,
-and maintainability of assessment content.
+- Allow human reviewers to approve or reject generated items
 
-------------------------------------------------------------------------
+- Commit approved items to the database
 
-# ✨ Features
+## ✨ Features
 
-  -----------------------------------------------------------------------
-  Category                         Description
-  -------------------------------- --------------------------------------
-  **AI Question Generation**       Generate structured exam items from
-                                   `.docx` documents or text prompts
-                                   using OpenAI GPT models
+| Category | Description |
 
-  **Validation Guardrails**        Validate generated items, enforce JSON
-                                   schema, and ensure structural
-                                   consistency
+|---|---|
 
-  **Semantic Similarity            Detect semantically similar items
-  Detection**                      using Hugging Face Sentence
-                                   Transformers embeddings
+| **AI Generation** | Generates structured exam items in JSON format from `.docx` files or text prompts |
 
-  **Human Review Workflow**        Review, approve, reject, and commit
-                                   exam items before publication
+| **Validation Guardrails** | Enforces choice-length limits and validates generated item structure |
 
-  **React Frontend**               Interactive reviewer dashboard with
-                                   similarity visualization and review
-                                   workflow
+| **Duplicate Detection** | Uses Hugging Face Sentence Transformers for semantic similarity |
 
-  **Prompt Orchestration** *(In    Separate generation, review, revision,
-  Progress)*                       and retrieval into independent AI
-                                   workflows
+| **Human Review Workflow** | Supports approve, reject, and commit actions |
 
-  **AI Quality Reviewer** *(In     Automatically evaluate grammar,
-  Progress)*                       ambiguity, distractor quality,
-                                   learning objective alignment, and item
-                                   quality
+| **Frontend** | React interface for item review and similarity display |
 
-  **AI Revision Assistant** *(In   Revise generated items while
-  Progress)*                       preserving learning objectives and
-                                   target difficulty
+| **Persistence** | SQLite and SQLAlchemy |
 
-  **RAG-based Standards Review**   Retrieve internal authoring guidelines
-  *(In Progress)*                  to validate generated items against
-                                   organization-specific standards
+## 💻 Tech Stack
 
-  **Human Review Comments** *(In   Reviewer feedback becomes part of the
-  Progress)*                       AI revision workflow
+| Layer | Technologies |
 
-  **Version History** *(In         Track AI-generated, AI-revised, and
-  Progress)*                       human-edited versions throughout the
-                                   authoring lifecycle
+|---|---|
 
-  **MCP Integration** *(Planned)*  Expose exam authoring capabilities as
-                                   Model Context Protocol (MCP) tools for
-                                   AI assistants
-  -----------------------------------------------------------------------
+| **Backend** | Python, FastAPI, SQLAlchemy, SQLite |
 
-------------------------------------------------------------------------
+| **AI** | OpenAI API / GPT-4.1 |
 
-# 🏗️ System Architecture
+| **NLP** | Hugging Face Sentence Transformers, Embeddings, Semantic Similarity |
 
-``` text
-                           User
-                             │
-                             ▼
-                    Prompt Orchestrator
-                             │
-        ┌────────────────────┼────────────────────┐
-        ▼                    ▼                    ▼
- Question Generation    AI Quality Review    AI Revision
-                             │
-                             ▼
-                RAG Standards Retrieval
-                             │
-                             ▼
-                  Human Review Workflow
-                             │
-                             ▼
-                     Version History
-                             │
-                             ▼
-                  SQLite / Item Database
+| **Frontend** | React, JavaScript, HTML, CSS |
+
+| **Validation** | Pydantic, JSON Validation |
+
+| **DevOps** | Docker |
+
+## 👤 Author
+
+**Naomi (Yu-Shan) Cheng**  
+
+Master of Computer Science (AI Specialization)  
+
+University of Illinois Urbana–Champaign
+
+"""
+
+# If this is the v2 file, create a clean current-state README instead.
+
+if "MCP Integration" in text or "RAG-based Standards Review" in text:
+
+    text = """# 👩‍🏫👨‍🏫 ExamFlux
+
+ExamFlux is an AI-powered exam authoring and review platform that combines LLM-based question generation, validation guardrails, semantic similarity detection, and human approval into a unified workflow.
+
+---
+
+## 🎥 Video Walkthrough
+
+https://youtu.be/R-jLH7xjr88
+
+---
+
+## 📖 Overview
+
+ExamFlux demonstrates how **AI + backend orchestration + workflow automation** can transform exam content creation.
+
+It provides a complete pipeline:
+
+- Generate exam items from `.docx` files or text prompts using OpenAI GPT-4.1
+
+- Validate structure and enforce guardrails
+
+- Compute semantic embeddings for similarity detection
+
+- Enable human reviewers to approve or reject items
+
+- Commit approved items to the database
+
+Rather than replacing human reviewers, ExamFlux uses AI to accelerate item creation while keeping humans in control of final review and approval.
+
+---
+
+## ✨ Features
+
+| Category | Description |
+
+|-----------|-------------|
+
+| **AI Generation** | Uses the OpenAI API to generate exam items in JSON format from `.docx` files or text prompts |
+
+| **Validation Guardrails** | Enforces choice-length limits and ensures valid item structure |
+
+| **Duplicate Detection** | Embeds each item using Hugging Face Sentence Transformers for semantic similarity search |
+
+| **Review Workflow** | Supports `approve`, `reject`, and `commit` actions |
+
+| **Frontend** | React-based interface for item viewing, approval, and similarity display |
+
+| **Persistence** | Stores item and review data using SQLite and SQLAlchemy |
+
+---
+
+## 🏗️ Architecture
+
+```text
+
++------------------------------------------------------+
+
+|                    Frontend (React)                  |
+
+|  - Reviewer Interface                               |
+
+|  - Approve / Reject / Commit Workflow               |
+
+|  - Similarity Display                               |
+
++---------------------------▲--------------------------+
+
+                            |
+
+                            ▼
+
++---------------------------+--------------------------+
+
+|             FastAPI Backend (Python)                 |
+
+|  - /api/items CRUD routes                            |
+
+|  - /api/items/generate                               |
+
+|  - /api/items/similar                                |
+
+|  - /api/items/approve, /reject, /commit              |
+
+|  - SQLite via SQLAlchemy ORM                         |
+
++---------------------------▲--------------------------+
+
+                            |
+
+                            ▼
+
++---------------------------+--------------------------+
+
+|                AI & Embedding Services               |
+
+|  - OpenAI GPT-4.1 for generation                     |
+
+|  - Hugging Face Sentence Transformers embeddings     |
+
++------------------------------------------------------+
+
 ```
 
-------------------------------------------------------------------------
+---
 
-# 🤖 AI Workflow
+## 🚀 Setup Instructions
 
-``` text
-Generate Exam Item
-        │
-        ▼
-AI Quality Review
-        │
-        ▼
-Retrieve Internal Standards (RAG)
-        │
-        ▼
-Human Review
-        │
-        ▼
-AI Revision (if needed)
-        │
-        ▼
-Version History
-        │
-        ▼
-Approve / Reject
+### 1. Clone the repository
+
+```bash
+
+git clone https://github.com/ysc06/AI-powered-exam-item-reviewer.git
+
+cd AI-powered-exam-item-reviewer
+
 ```
 
-------------------------------------------------------------------------
+### 2. Create and activate a virtual environment
 
-# 🚀 Setup Instructions
+```bash
 
-## 1. Clone the repository
-
-``` bash
-git clone https://github.com/<your-username>/exam-item-reviewer.git
-cd exam-item-reviewer
-```
-
-## 2. Create and activate a virtual environment
-
-``` bash
 python3 -m venv .venv
+
 source .venv/bin/activate
 
 pip install -r requirements.txt
+
 ```
 
-## 3. Add your API key
+### 3. Add your API key in `.env`
 
-Create a `.env` file:
+```text
 
-``` text
 OPENAI_API_KEY=your_api_key_here
+
 ```
 
-## 4. Initialize the database
+### 4. Initialize the database
 
-``` bash
+```bash
+
 python -m backend.app.db_init
+
 ```
 
-## 5. Start the backend
+### 5. Run the backend server
 
-``` bash
+```bash
+
 uvicorn backend.app.main:app --reload
+
 ```
 
-Open:
+FastAPI docs:
 
-``` text
+```text
+
 http://127.0.0.1:8000/docs
+
 ```
 
-## 6. (Optional) Run with Docker Compose
+### 6. Optional: Run with Docker Compose
 
-``` bash
+```bash
+
 docker-compose up --build
+
 ```
 
-------------------------------------------------------------------------
+---
 
-# 📡 API Endpoints
+## 📡 API Endpoints
 
-  Method   Endpoint                    Description
-  -------- --------------------------- ----------------------------------
-  `POST`   `/api/items/`               Create new item
-  `GET`    `/api/items/`               List all items
-  `POST`   `/api/items/generate`       Generate exam items using OpenAI
-  `GET`    `/api/items/{id}/similar`   Find semantically similar items
-  `POST`   `/api/items/{id}/approve`   Approve item
-  `POST`   `/api/items/{id}/reject`    Reject item
-  `POST`   `/api/items/commit`         Commit approved items
-  `GET`    `/api/export`               Export items to CSV
+| Method | Endpoint | Description |
 
-### Planned APIs
+|--------|----------|-------------|
 
-  Method   Endpoint                     Description
-  -------- ---------------------------- --------------------------
-  `POST`   `/api/items/review`          AI quality review
-  `POST`   `/api/items/revise`          AI revision
-  `POST`   `/api/items/comments`        Human review comments
-  `GET`    `/api/items/{id}/versions`   Retrieve version history
+| `POST` | `/api/items/` | Create new item |
 
-------------------------------------------------------------------------
+| `GET` | `/api/items/` | List all items |
 
-# 📄 Example JSON Output
+| `POST` | `/api/items/generate` | Generate item from OpenAI prompt |
 
-``` json
+| `GET` | `/api/items/{id}/similar` | Find top-K similar items |
+
+| `POST` | `/api/items/{id}/approve` | Approve item |
+
+| `POST` | `/api/items/{id}/reject` | Reject item |
+
+| `POST` | `/api/items/commit` | Commit approved items |
+
+| `GET` | `/api/export` | Export items to CSV |
+
+---
+
+## 📄 Example JSON Output
+
+```json
+
 {
+
   "stimulus": "Company memo: meeting on Friday at 10 a.m.",
+
   "stem": "What is announced in the memo?",
+
   "choices": [
+
     "A staff lunch",
+
     "A budget review",
+
     "A quarterly meeting",
+
     "An office relocation"
+
   ],
+
   "answer": "C",
+
   "metadata": {
+
     "topic": "Business Communication",
+
     "difficulty": "Medium"
+
   }
+
 }
+
 ```
 
-------------------------------------------------------------------------
+---
 
-# 🗺️ Roadmap
+## 💻 Tech Stack
 
-## ✅ Completed
+| Layer | Technologies |
 
--   AI-powered exam item generation
--   React + FastAPI full-stack application
--   Semantic similarity detection
--   Human review workflow
--   SQLite persistence
--   OpenAI-powered generation from `.docx` and prompt input
+|--------|--------------|
 
-## 🚧 In Progress
+| **Backend** | Python, FastAPI, SQLAlchemy, SQLite |
 
--   Prompt Orchestration
--   AI Quality Reviewer
--   AI Revision Assistant
--   RAG-based Standards Review
--   Human Review Comments
--   Version History
--   Structured Review Workflow
+| **AI** | OpenAI API, GPT-4.1 |
 
-## 🔮 Planned
+| **NLP** | Hugging Face Sentence Transformers, Embeddings, Semantic Similarity |
 
--   MCP Tool Server
--   External Developer API
--   Team Collaboration
--   Analytics Dashboard
--   Sensitive Topic Detection
--   Bias & Fairness Review
+| **Frontend** | React, JavaScript, HTML, CSS |
 
-------------------------------------------------------------------------
+| **Utilities** | Docker, dotenv, Pydantic, JSON Validation |
 
-# 💻 Tech Stack
+---
 
-  -----------------------------------------------------------------------
-  Layer                     Technologies
-  ------------------------- ---------------------------------------------
-  **Backend**               FastAPI, Python, SQLAlchemy, SQLite
+## ✅ Current Capabilities
 
-  **Frontend**              React, JavaScript, HTML, CSS
+- [x] FastAPI backend with SQLite ORM
 
-  **AI**                    OpenAI GPT-4.1 / GPT-4o, Prompt Orchestration
-                            *(planned)*
+- [x] React frontend integration
 
-  **NLP**                   Hugging Face Sentence Transformers
+- [x] AI-powered exam item generation
 
-  **Retrieval**             Embedding-based Semantic Similarity,
-                            Retrieval-Augmented Generation (RAG)
-                            *(planned)*
+- [x] Generation from `.docx` files and text prompts
 
-  **AI Protocol**           Model Context Protocol (MCP) *(planned)*
+- [x] Validation guardrails
 
-  **Utilities**             Docker, dotenv, Pydantic, JSON Validation
-  -----------------------------------------------------------------------
+- [x] Embedding-based semantic similarity detection
 
-------------------------------------------------------------------------
+- [x] Human approve / reject / commit workflow
 
-# 📂 Project Structure
+- [x] Persistent item storage
 
-``` text
-ExamFlux/
+- [x] Docker support
 
-├── frontend/
-├── backend/
-│   ├── api/
-│   ├── services/
-│   ├── prompts/
-│   ├── review/
-│   ├── revision/
-│   ├── rag/
-│   ├── models/
-│   └── db/
-├── docs/
-└── README.md
-```
-
-------------------------------------------------------------------------
+---
 
-# 🎯 Vision
+## 🎯 Project Goal
 
-ExamFlux aims to evolve beyond an AI question generator into a complete
-**AI-powered exam authoring platform**.
+ExamFlux explores how generative AI can shift exam authoring from a primarily manual creation process toward an **AI-assisted, human-reviewed workflow**.
 
-By combining:
-
--   AI-powered question generation
--   AI-assisted quality review
--   Retrieval-Augmented Standards Validation (RAG)
--   Human-in-the-loop review
--   AI-assisted revision
--   Version history
--   Prompt orchestration
--   MCP tool integration
-
-the platform supports a scalable, transparent, and trustworthy workflow
-for modern educational and enterprise assessment development.
-
-------------------------------------------------------------------------
-
-# 👤 Author
-
-**Naomi (Yu-Shan) Cheng**
-
-Master of Computer Science (Artificial Intelligence Specialization)\
-University of Illinois Urbana--Champaign
-                                   consistency
-
-  **Semantic Similarity            Detect semantically similar items
-  Detection**                      using Hugging Face Sentence
-                                   Transformers embeddings
-
-  **Human Review Workflow**        Review, approve, reject, and commit
-                                   exam items before publication
-
-  **React Frontend**               Interactive reviewer dashboard with
-                                   similarity visualization and review
-                                   workflow
-
-  **Prompt Orchestration** *(In    Separate generation, review, revision,
-  Progress)*                       and retrieval into independent AI
-                                   workflows
-
-  **AI Quality Reviewer** *(In     Automatically evaluate grammar,
-  Progress)*                       ambiguity, distractor quality,
-                                   learning objective alignment, and item
-                                   quality
-
-  **AI Revision Assistant** *(In   Revise generated items while
-  Progress)*                       preserving learning objectives and
-                                   target difficulty
-
-  **RAG-based Standards Review**   Retrieve internal authoring guidelines
-  *(In Progress)*                  to validate generated items against
-                                   organization-specific standards
-
-  **Human Review Comments** *(In   Reviewer feedback becomes part of the
-  Progress)*                       AI revision workflow
-
-  **Version History** *(In         Track AI-generated, AI-revised, and
-  Progress)*                       human-edited versions throughout the
-                                   authoring lifecycle
-
-  **MCP Integration** *(Planned)*  Expose exam authoring capabilities as
-                                   Model Context Protocol (MCP) tools for
-                                   AI assistants
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-# 🏗️ System Architecture
-
-``` text
-                           User
-                             │
-                             ▼
-                    Prompt Orchestrator
-                             │
-        ┌────────────────────┼────────────────────┐
-        ▼                    ▼                    ▼
- Question Generation    AI Quality Review    AI Revision
-                             │
-                             ▼
-                RAG Standards Retrieval
-                             │
-                             ▼
-                  Human Review Workflow
-                             │
-                             ▼
-                     Version History
-                             │
-                             ▼
-                  SQLite / Item Database
-```
-
-------------------------------------------------------------------------
-
-# 🤖 AI Workflow
-
-``` text
-Generate Exam Item
-        │
-        ▼
-AI Quality Review
-        │
-        ▼
-Retrieve Internal Standards (RAG)
-        │
-        ▼
-Human Review
-        │
-        ▼
-AI Revision (if needed)
-        │
-        ▼
-Version History
-        │
-        ▼
-Approve / Reject
-```
-
-------------------------------------------------------------------------
-
-# 🚀 Setup Instructions
-
-## 1. Clone the repository
-
-``` bash
-git clone https://github.com/<your-username>/exam-item-reviewer.git
-cd exam-item-reviewer
-```
-
-## 2. Create and activate a virtual environment
-
-``` bash
-python3 -m venv .venv
-source .venv/bin/activate
-
-pip install -r requirements.txt
-```
-
-## 3. Add your API key
-
-Create a `.env` file:
-
-``` text
-OPENAI_API_KEY=your_api_key_here
-```
-
-## 4. Initialize the database
-
-``` bash
-python -m backend.app.db_init
-```
-
-## 5. Start the backend
-
-``` bash
-uvicorn backend.app.main:app --reload
-```
-
-Open:
-
-``` text
-http://127.0.0.1:8000/docs
-```
-
-## 6. (Optional) Run with Docker Compose
-
-``` bash
-docker-compose up --build
-```
-
-------------------------------------------------------------------------
-
-# 📡 API Endpoints
-
-  Method   Endpoint                    Description
-  -------- --------------------------- ----------------------------------
-  `POST`   `/api/items/`               Create new item
-  `GET`    `/api/items/`               List all items
-  `POST`   `/api/items/generate`       Generate exam items using OpenAI
-  `GET`    `/api/items/{id}/similar`   Find semantically similar items
-  `POST`   `/api/items/{id}/approve`   Approve item
-  `POST`   `/api/items/{id}/reject`    Reject item
-  `POST`   `/api/items/commit`         Commit approved items
-  `GET`    `/api/export`               Export items to CSV
-
-### Planned APIs
-
-  Method   Endpoint                     Description
-  -------- ---------------------------- --------------------------
-  `POST`   `/api/items/review`          AI quality review
-  `POST`   `/api/items/revise`          AI revision
-  `POST`   `/api/items/comments`        Human review comments
-  `GET`    `/api/items/{id}/versions`   Retrieve version history
-
-------------------------------------------------------------------------
-
-# 📄 Example JSON Output
-
-``` json
-{
-  "stimulus": "Company memo: meeting on Friday at 10 a.m.",
-  "stem": "What is announced in the memo?",
-  "choices": [
-    "A staff lunch",
-    "A budget review",
-    "A quarterly meeting",
-    "An office relocation"
-  ],
-  "answer": "C",
-  "metadata": {
-    "topic": "Business Communication",
-    "difficulty": "Medium"
-  }
-}
-```
-
-------------------------------------------------------------------------
-
-# 🗺️ Roadmap
-
-## ✅ Completed
-
--   AI-powered exam item generation
--   React + FastAPI full-stack application
--   Semantic similarity detection
--   Human review workflow
--   SQLite persistence
--   OpenAI-powered generation from `.docx` and prompt input
-
-## 🚧 In Progress
-
--   Prompt Orchestration
--   AI Quality Reviewer
--   AI Revision Assistant
--   RAG-based Standards Review
--   Human Review Comments
--   Version History
--   Structured Review Workflow
-
-## 🔮 Planned
-
--   MCP Tool Server
--   External Developer API
--   Team Collaboration
--   Analytics Dashboard
--   Sensitive Topic Detection
--   Bias & Fairness Review
-
-------------------------------------------------------------------------
-
-# 💻 Tech Stack
-
-  -----------------------------------------------------------------------
-  Layer                     Technologies
-  ------------------------- ---------------------------------------------
-  **Backend**               FastAPI, Python, SQLAlchemy, SQLite
-
-  **Frontend**              React, JavaScript, HTML, CSS
-
-  **AI**                    OpenAI GPT-4.1 / GPT-4o, Prompt Orchestration
-                            *(planned)*
-
-  **NLP**                   Hugging Face Sentence Transformers
-
-  **Retrieval**             Embedding-based Semantic Similarity,
-                            Retrieval-Augmented Generation (RAG)
-                            *(planned)*
-
-  **AI Protocol**           Model Context Protocol (MCP) *(planned)*
-
-  **Utilities**             Docker, dotenv, Pydantic, JSON Validation
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-# 📂 Project Structure
-
-``` text
-ExamFlux/
-
-├── frontend/
-├── backend/
-│   ├── api/
-│   ├── services/
-│   ├── prompts/
-│   ├── review/
-│   ├── revision/
-│   ├── rag/
-│   ├── models/
-│   └── db/
-├── docs/
-└── README.md
-```
-
-------------------------------------------------------------------------
-
-# 🎯 Vision
-
-ExamFlux aims to evolve beyond an AI question generator into a complete
-**AI-powered exam authoring platform**.
-
-By combining:
-
--   AI-powered question generation
--   AI-assisted quality review
--   Retrieval-Augmented Standards Validation (RAG)
--   Human-in-the-loop review
--   AI-assisted revision
--   Version history
--   Prompt orchestration
--   MCP tool integration
-
-the platform supports a scalable, transparent, and trustworthy workflow
-for modern educational and enterprise assessment development.
-
-------------------------------------------------------------------------
-
-# 👤 Author
-
-**Naomi (Yu-Shan) Cheng**
-
-Master of Computer Science (Artificial Intelligence Specialization)\
-University of Illinois Urbana--Champaign
+AI accelerates initial item generation and supports duplicate detection, while human reviewers retain control over quality decisions and final approval.
+
+---
+
+## 👤 Author
+
+**Naomi (Yu-Shan) Cheng**  
+
+Master of Computer Science (AI Specialization)  
+
+University of Illinois Urbana–Champaign
+
+"""
